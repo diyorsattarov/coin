@@ -3,13 +3,18 @@
 #define UTILITIES_H
 
 #include <random>
+#include <string>
 
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
 #include <spdlog/sinks/basic_file_sink.h>
 
+enum class CoinState;
+
 class Utilities {
 public:
+    static std::string toString(CoinState state);
+
     static std::shared_ptr<spdlog::logger> console_logger();
     static std::shared_ptr<spdlog::logger> file_logger(const std::string& filename);
     static std::shared_ptr<spdlog::logger> combined_logger(const std::string& filename);

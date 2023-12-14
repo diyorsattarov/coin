@@ -1,4 +1,13 @@
 #include <utilities/utilities.h>
+#include <coin/coin.h>
+
+std::string Utilities::toString(CoinState state) {
+    switch(state) {
+        case CoinState::Heads: return "Heads";
+        case CoinState::Tails: return "Tails";
+        default: return "Unknown";
+    }
+}
 
 std::shared_ptr<spdlog::logger> Utilities::console_logger() {
     static auto logger = create_console_logger();
