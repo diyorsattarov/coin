@@ -2,13 +2,18 @@
 #ifndef COIN_H
 #define COIN_H
 
+enum class CoinState {
+    Heads,
+    Tails
+};
+
 class Coin {
 public:
     Coin();
     ~Coin();
-    bool getCoin();
+    CoinState flip();
 private:
-    bool coin;
+    CoinState state;
 };
 
 #endif

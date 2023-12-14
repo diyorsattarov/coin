@@ -6,3 +6,7 @@ protected:
     void SetUp() override {}
     void TearDown() override {}
 };
+
+TEST_F(CoinTest, FirstCoinTest) {
+    ASSERT_EQ(1, 1);
+}

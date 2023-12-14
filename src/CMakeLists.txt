@@ -1,8 +1,9 @@
-add_library(bar
-    bar/bar.cpp
+find_package(spdlog REQUIRED)
+add_library(utilities
+    utilities/utilities.cpp
 )
-target_include_directories(bar PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include)
-#target_link_libraries(bar PRIVATE Boost::system Boost::serialization)
+target_include_directories(utilities PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include)
+target_link_libraries(utilities PRIVATE spdlog::spdlog)
 
 add_library(coin
     coin/coin.cpp
