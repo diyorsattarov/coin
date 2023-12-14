@@ -4,7 +4,7 @@ Coin::Coin() : state(CoinState::Heads) { Utilities::console_logger()->info("Coin
 
 Coin::~Coin() { Utilities::console_logger()->info("Coin destructor called"); }
 
-CoinState Coin::flip() {
+CoinState Coin::flipState() {
     //Utilities::console_logger()->info("Coin flip method called");
     std::random_device rd;
     std::mt19937 gen(rd());

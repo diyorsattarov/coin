@@ -21,7 +21,7 @@ TEST_F(CoinTest, MultipleFlipsDistribution) {
         const int numFlips = 1000;
 
         for (int i = 0; i < numFlips; ++i) {
-            if (coin.flip() == CoinState::Heads) {
+            if (coin.flipState() == CoinState::Heads) {
                 ++heads;
             } else {
                 ++tails;

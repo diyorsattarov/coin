@@ -13,7 +13,7 @@ class Coin {
 public:
     Coin();
     ~Coin();
-    CoinState flip();
+    CoinState flipState();
     CoinState getState();
 private:
     CoinState state;
