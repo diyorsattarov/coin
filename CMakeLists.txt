@@ -10,13 +10,13 @@ add_executable(tests
 )
 
 find_package(GTest REQUIRED)
-# ... other libraries ...
 
 target_include_directories(tests PRIVATE ${GTEST_INCLUDE_DIRS})
 target_link_libraries(tests PRIVATE
     ${GTEST_BOTH_LIBRARIES} 
     pthread 
     coin
+    utilities
     # ... other libraries ...
 )
 
