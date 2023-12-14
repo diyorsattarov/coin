@@ -8,29 +8,38 @@ protected:
     void TearDown() override {}
 };
 
-TEST_F(CoinTest, FirstCoinTest) {
+TEST_F(CoinTest, InitialStateTest) {
     ASSERT_EQ(coin.getState(), CoinState::Heads);
 }
 
+TEST_F(CoinTest, FlipConsistencyTest) {
+    for (int i = 0; i < 100; ++i) {
+        CoinState state = coin.flipState();
+        ASSERT_TRUE(state == CoinState::Heads || state == CoinState::Tails);
+    }
+}
+
 TEST_F(CoinTest, MultipleFlipsDistribution) {
-    float headsAverage = 0;
-    float tailsAverage = 0;
-    for (int j = 0; j < 10; ++j) {
+    int totalHeads = 0;
+    int totalTails = 0;
+    const int numTrials = 10;
+    const int numFlips = 1000;
+
+    for (int j = 0; j < numTrials; ++j) {
         int heads = 0;
         int tails = 0;
-        const int numFlips = 1000;
 
         for (int i = 0; i < numFlips; ++i) {
-            if (coin.flipState() == CoinState::Heads) {
-                ++heads;
-            } else {
-                ++tails;
-            }
+            coin.flipState() == CoinState::Heads ? ++heads : ++tails;
         }
-        Utilities::console_logger()->info("Heads: {} Tails: {}", heads, tails);
-        ASSERT_NEAR(heads, tails, numFlips * 0.1); // Allowing 10% deviation
-        headsAverage += heads;
-        tailsAverage += tails;
+
+        totalHeads += heads;
+        totalTails += tails;
     }
-    Utilities::console_logger()->info("headsAverage: {} tailsAverage: {}", headsAverage/100, tailsAverage/100);
+
+    float headsAverage = static_cast<float>(totalHeads) / numTrials;
+    float tailsAverage = static_cast<float>(totalTails) / numTrials;
+
+    Utilities::console_logger()->info("Average Heads: {}, Average Tails: {}", headsAverage, tailsAverage);
+    ASSERT_NEAR(headsAverage, tailsAverage, numFlips * 0.1); // Allowing 10% deviation
 }

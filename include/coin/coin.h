@@ -17,6 +17,7 @@ public:
     CoinState getState();
 private:
     CoinState state;
+    std::mt19937 gen;
 };
 
 #endif
