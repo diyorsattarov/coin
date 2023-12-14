@@ -1,4 +1,5 @@
 find_package(spdlog REQUIRED)
+find_package(Boost REQUIRED COMPONENTS system)
 add_library(utilities
     utilities/utilities.cpp
 )
@@ -14,3 +15,9 @@ add_library(game
     game/game.cpp
 )
 target_include_directories(game PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include)
+
+add_library(client
+    client/client.cpp
+)
+target_include_directories(client PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include)
+target_link_libraries(client PRIVATE Boost::system)

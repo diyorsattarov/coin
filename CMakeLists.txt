@@ -8,6 +8,7 @@ add_executable(tests
     # ... other test files ...
     tests/coin/test_coin.cpp
     tests/game/test_game.cpp
+    tests/client/test_client.cpp
 )
 
 find_package(GTest REQUIRED)
@@ -18,6 +19,7 @@ target_link_libraries(tests PRIVATE
     pthread 
     coin
     game
+    client
     utilities
     # ... other libraries ...
 )
