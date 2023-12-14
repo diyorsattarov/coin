@@ -9,3 +9,8 @@ add_library(coin
     coin/coin.cpp
 )
 target_include_directories(coin PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include)
+
+add_library(game
+    game/game.cpp
+)
+target_include_directories(game PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include)
