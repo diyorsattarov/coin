@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include <coin/coin.h>
 
-TEST(FirstTest, FirstTest) {
-    ASSERT_EQ(1,1);
-}
+class CoinTest : public ::testing::Test {
+protected:
+    void SetUp() override {}
+    void TearDown() override {}
+};
