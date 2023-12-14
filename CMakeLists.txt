@@ -6,7 +6,7 @@ add_subdirectory(src)
 
 add_executable(tests
     # ... other test files ...
-    tests/bar/test_bar.cpp
+    tests/coin/test_coin.cpp
 )
 
 find_package(GTest REQUIRED)
@@ -16,7 +16,7 @@ target_include_directories(tests PRIVATE ${GTEST_INCLUDE_DIRS})
 target_link_libraries(tests PRIVATE
     ${GTEST_BOTH_LIBRARIES} 
     pthread 
-    bar
+    coin
     # ... other libraries ...
 )
 
