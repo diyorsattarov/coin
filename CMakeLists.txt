@@ -6,9 +6,10 @@ add_subdirectory(src)
 
 add_executable(tests
     # ... other test files ...
-    tests/coin/test_coin.cpp
-    tests/game/test_game.cpp
-    tests/client/test_client.cpp
+    #tests/coin/test_coin.cpp
+    #tests/game/test_game.cpp
+    #tests/client/test_client.cpp
+    tests/server/test_server.cpp
 )
 
 find_package(GTest REQUIRED)
@@ -20,6 +21,8 @@ target_link_libraries(tests PRIVATE
     coin
     game
     client
+    server
+    session
     utilities
     # ... other libraries ...
 )

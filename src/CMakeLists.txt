@@ -21,3 +21,15 @@ add_library(client
 )
 target_include_directories(client PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include)
 target_link_libraries(client PRIVATE Boost::system)
+
+add_library(server
+    server/server.cpp
+)
+target_include_directories(server PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include)
+target_link_libraries(server PRIVATE Boost::system)
+
+add_library(session
+    server/session.cpp
+)
+target_include_directories(session PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include)
+target_link_libraries(session PRIVATE Boost::system)
